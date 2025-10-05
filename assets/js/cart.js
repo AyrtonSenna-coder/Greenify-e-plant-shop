@@ -1,136 +1,81 @@
-// ===================== CART LOGIC =====================
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("cart-total");
+  const cartCountElement = document.getElementById("cart-count");
 
-// Cart state stored in localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cart = [];
 
-// DOM elements
-const cartLink = document.getElementById('cart-link');
-const cartPanel = document.getElementById('cart-panel');
-const cartOverlay = document.getElementById('cart-overlay');
-const closeCartBtn = document.getElementById('close-cart');
-const cartCount = document.getElementById('cart-count');
-const cartItemsContainer = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
+  // Add item to cart
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const name = button.getAttribute("data-name");
+      const price = parseFloat(button.getAttribute("data-price"));
 
-// ===================== OPEN/CLOSE CART PANEL =====================
-if (cartLink && cartPanel && cartOverlay) {
-  cartLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    cartPanel.classList.add('active');
-    cartOverlay.classList.add('active');
-    renderCart();
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      updateCartDisplay();
+    });
   });
 
-  closeCartBtn.addEventListener('click', () => {
-    cartPanel.classList.remove('active');
-    cartOverlay.classList.remove('active');
+  // Remove item from cart
+  cartItemsContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("remove-item")) {
+      const name = e.target.getAttribute("data-name");
+      cart = cart.filter(item => item.name !== name);
+      updateCartDisplay();
+    }
   });
 
-  cartOverlay.addEventListener('click', () => {
-    cartPanel.classList.remove('active');
-    cartOverlay.classList.remove('active');
-  });
-}
+  // Update Cart UI
+  function updateCartDisplay() {
+    cartItemsContainer.innerHTML = "";
 
-// ===================== ADD TO CART =====================
-document.querySelectorAll('.add-to-cart-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const name = btn.dataset.name;
-    const price = parseFloat(btn.dataset.price);
-    const image = btn.dataset.image || './assets/images/default-plant.jpg';
-
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push({ name, price, image, quantity: 1 });
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `<p class="empty-text">Your cart is empty 🛍️</p>`;
+      cartTotalElement.textContent = "0.00";
+      cartCountElement.textContent = "0";
+      return;
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    renderCart();
-  });
-});
+    let total = 0;
+    let count = 0;
 
-// ===================== UPDATE CART UI =====================
-function renderCart() {
-  cartItemsContainer.innerHTML = '';
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      count += item.quantity;
 
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = `<p class="empty-text">Your cart is empty 🛍️</p>`;
-    cartTotal.textContent = '0.00';
-    return;
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("cart-item");
+      cartItem.innerHTML = `
+        <div class="item-info">
+          <span class="item-name">${item.name}</span>
+          <span class="item-price">$${item.price.toFixed(2)}</span>
+        </div>
+        <div class="item-actions">
+          <span class="item-qty">x${item.quantity}</span>
+          <button class="remove-item" data-name="${item.name}">Remove</button>
+        </div>
+      `;
+      cartItemsContainer.appendChild(cartItem);
+    });
+
+    cartTotalElement.textContent = total.toFixed(2);
+    cartCountElement.textContent = count;
+    bounceCartIcon();
   }
 
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.price * item.quantity;
-
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-      <div class="cart-item-info">
-        <h4>${item.name}</h4>
-        <p>$${item.price.toFixed(2)}</p>
-      </div>
-      <div class="cart-item-controls">
-        <button class="decrease" data-index="${index}">−</button>
-        <span>${item.quantity}</span>
-        <button class="increase" data-index="${index}">+</button>
-        <button class="remove" data-index="${index}">✖</button>
-      </div>
-    `;
-    cartItemsContainer.appendChild(div);
-  });
-
-  cartTotal.textContent = total.toFixed(2);
-
-  // Quantity controls
-  document.querySelectorAll('.increase').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idx = btn.dataset.index;
-      cart[idx].quantity++;
-      saveAndRender();
-    });
-  });
-
-  document.querySelectorAll('.decrease').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idx = btn.dataset.index;
-      if (cart[idx].quantity > 1) {
-        cart[idx].quantity--;
-      } else {
-        cart.splice(idx, 1);
-      }
-      saveAndRender();
-    });
-  });
-
-  document.querySelectorAll('.remove').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idx = btn.dataset.index;
-      cart.splice(idx, 1);
-      saveAndRender();
-    });
-  });
-}
-
-function saveAndRender() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartCount();
-  renderCart();
-}
-
-// ===================== UPDATE CART COUNT =====================
-function updateCartCount() {
-  if (!cartCount) return;
-  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = total;
-}
-
-// On page load
-updateCartCount();
-renderCart();
-
+  // Add a lil bounce animation when adding items
+  function bounceCartIcon() {
+    cartCountElement.classList.add("bounce");
+    setTimeout(() => {
+      cartCountElement.classList.remove("bounce");
+    }, 500);
+  }
+});
