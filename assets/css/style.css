@@ -39,7 +39,7 @@ header nav ul li a:hover {
 /* === Hero Section === */
 .hero {
   height: 100vh;
-  background-image: url('images/hero.jpg'); /* ensure path is correct */
+  background-image: url('./assets/images/hero-plant.png'); /* ensure path is correct */
   background-size: cover;
   background-position: center;
   display: flex;
