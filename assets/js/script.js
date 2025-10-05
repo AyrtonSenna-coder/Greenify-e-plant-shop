@@ -15,6 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
 });
+  document.addEventListener('DOMContentLoaded', () => {
+  updateCartUI();
+
+  // Auto-open cart panel if cart has items
+  if (cart.length > 0) {
+    document.getElementById('cart-panel').classList.add('active');
+    document.getElementById('cart-overlay').classList.add('active');
+  }
+});
+
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   if (cart.length === 0) {
@@ -139,4 +149,5 @@ function updateCartUI() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 });
+
 
