@@ -1,4 +1,6 @@
 // ================== CART PANEL TOGGLE ==================
+console.log("script.js loaded");
+
 
 // Grab elements
 const cartLink = document.querySelector('a[href="#cart"]');
@@ -29,3 +31,4 @@ if (cartOverlay) {
     cartOverlay.classList.remove('active');
   });
 }
+
