@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Greenify | Your Cart</title>
+  <link rel="stylesheet" href="assets/css/cart.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🌿 Greenify</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="cart.html" class="cart-link">🛒 Cart <span id="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+  <h2>Your Shopping Cart 🛍️</h2>
+
+  <div id="cart-items" class="cart-items">
+    <!-- Items injected here dynamically -->
+  </div>
+
+  <div class="cart-summary">
+    <p>Total: $<span id="cart-total">0.00</span></p>
+    <button id="checkout-btn" class="btn-primary">Checkout</button>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Greenify | Built with 💚 for nature lovers.</p>
+  </footer>
+
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>
