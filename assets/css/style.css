@@ -1,287 +1,251 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* === General Styles === */
 body {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #f7f9f7;
-  color: #222;
+  scroll-behavior: smooth;
+  background-color: #f4fdf7;
 }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #2e7d32;
-}
-
-/* Header */
-.header {
+/* === Header / Nav === */
+header {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 90%;
-  background: #fff;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.header .logo {
+header nav ul {
+  list-style: none;
   display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+  gap: 20px;
 }
 
-.header .logo img {
-  height: 35px;
-  margin-right: 10px;
-}
-
-.header nav a {
-  margin: 0 15px;
+header nav ul li a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #2d6a4f;
+  font-weight: 600;
 }
 
-.header nav a:hover {
-  color: #2e7d32;
+header nav ul li a:hover {
+  color: #40916c;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-
-/* ================= HERO SECTION ================= */
+/* === Hero Section === */
 .hero {
-  height: 85vh;
-  background: url('./luise-and-nic-hETU8_b2IM0-unsplash.jpg') no-repeat center center/cover;
+  height: 100vh;
+  background-image: url('images/hero.jpg'); /* ensure path is correct */
+  background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  color: white;
+  color: #fff;
   position: relative;
 }
 
 .hero::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 600px;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
+.btn {
+  padding: 12px 25px;
+  background-color: #40916c;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #2d6a4f;
+}
+
+/* === About Section === */
+.about {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f4fdf7;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2d6a4f;
+}
+
+.about p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #344e41;
+}
+
+/* === Shop Section === */
+.shop {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.shop h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #2d6a4f;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.product {
+  background-color: #e6f2e6;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product h3 {
+  margin: 15px 0 5px;
+  color: #1b4332;
+}
+
+.product p {
+  color: #344e41;
+  font-weight: bold;
+}
+
+.product button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #40916c;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background-color: #2d6a4f;
+}
+
+/* === Contact Section === */
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f4fdf7;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2d6a4f;
+}
+
+.contact p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #344e41;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #40916c;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2d6a4f;
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 36px;
   }
+
   .hero p {
-    font-size: 1rem;
+    font-size: 16px;
+  }
+
+  .product {
+    width: 45%;
   }
 }
 
-/* Hero Section Animation */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(to bottom right, #f5fff5, #e8f8ea);
-  overflow: hidden;
-}
-
-.hero img {
-  width: 100%;
-  max-width: 90%;
-  animation: float 5s ease-in-out infinite;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #2e7d32;
-  margin-top: 20px;
-  opacity: 0;
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 10px;
-  opacity: 0;
-  animation: fadeInUp 1.2s ease 0.3s forwards;
-}
-
-.hero .cta-btn {
-  background: #2e7d32;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  display: inline-block;
-  margin-top: 25px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-  opacity: 0;
-  animation: fadeInUp 1.2s ease 0.6s forwards;
-}
-
-.hero .cta-btn:hover {
-  background: #1b5e20;
-}
-
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
+@media (max-width: 480px) {
+  .product {
+    width: 100%;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  header {
+    flex-direction: column;
+    gap: 10px;
   }
 }
-
-/* Shop Section */
-#products {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.product-card .product-info {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.product-card .product-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.product-card .product-info p {
-  font-size: 0.95rem;
-  color: #2e7d32;
-  margin-bottom: 10px;
-}
-
-.product-card .add-to-cart-btn {
-  background: #2e7d32;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.product-card .add-to-cart-btn:hover {
-  background: #1b5e20;
-}
-
-
-/* FOOTER */
-footer {
-  background-color: #111;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-}
-
