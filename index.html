@@ -11,48 +11,48 @@
 </head>
 <body>
   <!-- ========== HEADER / NAVBAR ========== -->
-<header class="site-header">
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#home">🌿 Greenify</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="cart-icon">
-      <a href="#cart">
-        🛒 <span id="cart-count">0</span>
-      </a>
-    </div>
-  </nav>
-</header>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#home">🌿 Greenify</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="cart-icon">
+        <a href="#cart">
+          🛒 <span id="cart-count">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-<!-- ========== CART PANEL ========== -->
-<div id="cart-overlay" class="cart-overlay"></div>
+  <!-- ========== CART SIDEBAR (1 COPY ONLY) ========== -->
+  <div id="cart-overlay" class="cart-overlay"></div>
 
-<div id="cart-panel" class="cart-panel">
-  <div class="cart-header">
-    <h2>Your Cart</h2>
-    <button id="close-cart" class="close-cart-btn">✖</button>
+  <div id="cart-panel" class="cart-panel">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart" class="close-cart-btn">✖</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-text">Your cart is empty 🛍️</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="total">
+        <span>Total:</span>
+        <span>$<span id="cart-total">0.00</span></span>
+      </div>
+      <button id="checkout-btn" class="checkout-btn">Checkout</button>
+    </div>
   </div>
 
-  <div id="cart-items" class="cart-items">
-    <!-- JS will render items here -->
-  </div>
-
-  <div class="cart-footer">
-    <div class="total">
-      <span>Total:</span>
-      <span>$<span id="cart-total">0.00</span></span>
-    </div>
-    <button id="checkout-btn" class="checkout-btn">Checkout</button>
-  </div>
-</div>
-
-  <!-- Hero / Home Section -->
+  <!-- ========== HERO SECTION ========== -->
   <section id="home" class="hero">
     <div class="hero-content">
       <img src="assets/images/hero-plant.png/emma-swoboda-qKaioqt8mo4-unsplash.jpg" alt="Hero Plant">
@@ -62,52 +62,51 @@
     </div>
   </section>
 
-
+  <!-- ========== PRODUCTS SECTION ========== -->
   <section id="products">
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="images/snakeplant.jpg" alt="Snake Plant">
-      <div class="product-info">
-        <h3>Snake Plant</h3>
-        <p>$25</p>
-        <button class="add-to-cart-btn" data-name="Snake Plant" data-price="25">Add to Cart</button>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/snakeplant.jpg" alt="Snake Plant">
+        <div class="product-info">
+          <h3>Snake Plant</h3>
+          <p>$25</p>
+          <button class="add-to-cart-btn" data-name="Snake Plant" data-price="25">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/aloevera.jpg" alt="Aloe Vera">
+        <div class="product-info">
+          <h3>Aloe Vera</h3>
+          <p>$18</p>
+          <button class="add-to-cart-btn" data-name="Aloe Vera" data-price="18">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/peacelily.jpg" alt="Peace Lily">
+        <div class="product-info">
+          <h3>Peace Lily</h3>
+          <p>$30</p>
+          <button class="add-to-cart-btn" data-name="Peace Lily" data-price="30">Add to Cart</button>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="images/aloevera.jpg" alt="Aloe Vera">
-      <div class="product-info">
-        <h3>Aloe Vera</h3>
-        <p>$18</p>
-        <button class="add-to-cart-btn" data-name="Aloe Vera" data-price="18">Add to Cart</button>
-      </div>
-    </div>
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="about-section">
+    <h2>About Greenify</h2>
+    <p>At Greenify, we believe in the power of plants to enhance well-being and create beautiful living spaces. Our mission is to provide high-quality, sustainable plants that bring joy and tranquility to your home or office.</p>
+  </section>
 
-    <div class="product-card">
-      <img src="images/peacelily.jpg" alt="Peace Lily">
-      <div class="product-info">
-        <h3>Peace Lily</h3>
-        <p>$30</p>
-        <button class="add-to-cart-btn" data-name="Peace Lily" data-price="30">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Cart Sidebar -->
-
-<!-- Overlay -->
-    <section id="about" class="about-section">
-        <h2>About Greenify</h2>
-        <p>At Greenify, we believe in the power of plants to enhance well-being and create beautiful living spaces. Our mission is to provide high-quality, sustainable plants that bring joy and tranquility to your home or office.</p>
-
-
+  <!-- ========== FOOTER ========== -->
   <footer>
     <p>© 2025 Greenify | Built with 💚 for nature lovers.</p>
   </footer>
 
-<script src="./assets/js/cart.js"></script>
-<script src="./assets/js/script.js"></script>
-
+  <!-- ========== JS ========== -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/cart.js"></script>
 </body>
 </html>
