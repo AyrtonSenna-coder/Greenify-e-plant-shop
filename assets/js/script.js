@@ -32,3 +32,28 @@ if (cartOverlay) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const cartIcon = document.querySelector(".cart-icon a");
+  const cartPanel = document.getElementById("cart-panel");
+  const cartOverlay = document.getElementById("cart-overlay");
+  const closeCart = document.getElementById("close-cart");
+
+  cartIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    cartPanel.classList.add("active");
+    cartOverlay.classList.add("active");
+  });
+
+  closeCart.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    cartOverlay.classList.remove("active");
+  });
+
+  cartOverlay.addEventListener("click", () => {
+    cartPanel.classList.remove("active");
+    cartOverlay.classList.remove("active");
+  });
+});
+
+
+
