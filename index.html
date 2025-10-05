@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greenify Plant Shop 🌿</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/cart.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Greenify | Premium Plants</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- ========== HEADER / NAVBAR ========== -->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#home">🌿 Greenify</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="cart-icon">
+      <a href="#cart">
+        🛒 <span id="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+</header>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">🌱 Greenify</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#products">Shop</a>
-      <a href="#contact">Contact</a>
-      <a href="#cart" id="cart-link">🛒 <span id="cart-count">0</span></a>
-    </nav>
-  </header>
+<!-- ========== CART PANEL ========== -->
+<div id="cart-overlay" class="cart-overlay"></div>
 
-  <!-- Hero Section -->
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button id="close-cart" class="close-cart-btn">✖</button>
+  </div>
+
+  <div id="cart-items" class="cart-items">
+    <!-- JS will render items here -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="total">
+      <span>Total:</span>
+      <span>$<span id="cart-total">0.00</span></span>
+    </div>
+    <button id="checkout-btn" class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+  <!-- Hero / Home Section -->
   <section id="home" class="hero">
     <div class="hero-text">
       <h1>Grow Green. Live Clean.</h1>
@@ -29,46 +60,66 @@
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section id="products" class="products">
-    <h2>Our Plants</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/product1.jpg" alt="Basil">
-        <h3>Basil Plant</h3>
-        <p>$5.00</p>
-        <button class="add-to-cart-btn" data-name="Basil Plant" data-price="5">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/product2.jpg" alt="Lavender">
-        <h3>Lavender</h3>
-        <p>$7.50</p>
-        <button class="add-to-cart-btn" data-name="Lavender" data-price="7.5">Add to Cart</button>
-      </div>
-      <!-- Add more products here -->
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: support@greenify.com</p>
-  </section>
-
-  <!-- Cart Panel -->
-  <div id="cart-overlay"></div>
-  <div id="cart-panel">
-    <div class="cart-header">
-      <h2>Your Cart</h2>
-      <button id="close-cart">✖</button>
+  <section id="products">
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="images/snakeplant.jpg" alt="Snake Plant">
+      <div class="product-info">
+        <h3>Snake Plant</h3>
+        <p>$25</p>
+        <button class="add-to-cart-btn" data-name="Snake Plant" data-price="25">Add to Cart</button>
+      </div>
     </div>
-    <div id="cart-items"></div>
-    <div class="cart-footer">
-      <p>Total: $<span id="cart-total">0</span></p>
-      <button class="checkout-btn">Checkout</button>
+
+    <div class="product-card">
+      <img src="images/aloevera.jpg" alt="Aloe Vera">
+      <div class="product-info">
+        <h3>Aloe Vera</h3>
+        <p>$18</p>
+        <button class="add-to-cart-btn" data-name="Aloe Vera" data-price="18">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/peacelily.jpg" alt="Peace Lily">
+      <div class="product-info">
+        <h3>Peace Lily</h3>
+        <p>$30</p>
+        <button class="add-to-cart-btn" data-name="Peace Lily" data-price="30">Add to Cart</button>
+      </div>
     </div>
   </div>
+</section>
 
-  <script src="js/script.js"></script>
+  <!-- Cart Sidebar -->
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button id="close-cart" class="close-cart">&times;</button>
+  </div>
+  <div id="cart-items" class="cart-items">
+    <p class="empty-text">Your cart is empty 🛍️</p>
+  </div>
+  <div class="cart-footer">
+    <span>Total: $<span id="cart-total">0</span></span>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="cart-overlay" class="cart-overlay"></div>
+    <section id="about" class="about-section">
+        <h2>About Greenify</h2>
+        <p>At Greenify, we believe in the power of plants to enhance well-being and create beautiful living spaces. Our mission is to provide high-quality, sustainable plants that bring joy and tranquility to your home or office.</p>
+
+
+  <footer>
+    <p>© 2025 Greenify | Built with 💚 for nature lovers.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/cart.js"></script>
 </body>
 </html>
