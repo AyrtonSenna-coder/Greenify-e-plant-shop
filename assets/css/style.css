@@ -96,7 +96,7 @@ header {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  background: url(background: url('./assets/images/hero.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
