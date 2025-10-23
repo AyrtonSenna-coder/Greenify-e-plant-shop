@@ -152,11 +152,10 @@
       }
 
       // Mobile menu
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+ const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
       if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
       }
-
       // Newsletter form
       const newsletterForm = document.querySelector('.subscription-form');
       if (newsletterForm) {
@@ -216,6 +215,7 @@
 
       // Auto slide
       startAutoSlide();
+      setInterval(nextSlide, 5000)
 
       // Dot click events
       elements.sliderDots.forEach((dot, index) => {
