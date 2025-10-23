@@ -11,7 +11,7 @@
   --text-dark: #343a40;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --border-radius: 8px;
+  --border-radius: 80px;
   --transition: all 0.3s ease;
 }
 
@@ -19,30 +19,31 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  line-height: 1.6;
+  line-height: 1.4;
   color: var(--text-dark);
   background-color: var(--white);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* ===== PLANTITUDE-INSPIRED HEADER STYLES ===== */
 .business-header {
-  position: fixed;
-  top: 0;
+  position: relative;
+  top: 20px;
   width: 100%;
   background: var(--white);
   box-shadow: var(--shadow);
   z-index: 1000;
+  padding: o;
 }
 
 .top-bar {
@@ -81,7 +82,7 @@ body {
 }
 
 .main-nav {
-  padding: 15px 0;
+  padding: 15px  0;
 }
 
 .main-nav .container {
@@ -505,7 +506,7 @@ body {
   height: 90vh;
   min-height: 600px;
   overflow: hidden;
-  margin-top: 140px;
+  margin-top: 80px;
 }
 
 .hero-slides {
@@ -1904,9 +1905,13 @@ body {
   .hero-slider {
     height: 70vh;
     min-height: 500px;
-    margin-top: 120px;
+    margin-top: 70px;
   }
   
+  .main-nav {
+    padding: 12px 0
+  }
+
   .hero-title {
     font-size: 2rem;
   }
